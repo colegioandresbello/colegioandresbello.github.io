@@ -161,8 +161,8 @@
     <h1>Votación de Cuadros</h1>
     <h2>Colegio Andrés Bello</h2>
     <p class="info-message">
-      ¡Bienvenido/a! Selecciona tu cuadro favorito haciendo clic en la imagen para previsualizarlo y luego haz clic en "Votar" para emitir tu voto.
-      <span class="highlight">Solo puedes votar una única vez.</span>
+      Selecciona tu cuadro favorito haciendo clic en la imagen para previsualizarlo y luego haz clic en "Votar" para emitir tu voto.
+      <span class="highlight">Solo puedes votar una vez.</span>
     </p>
 
     <div class="cuadros-grid">
