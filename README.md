@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Votación de Cuadros</title>
   <style>
-    /* ======= BASE ======= */
     :root {
       --color-primary: #2563eb;
       --color-success: #10b981;
@@ -15,11 +14,13 @@
       --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       --transition: all 0.3s ease;
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: "Inter", Arial, sans-serif;
       background-color: var(--color-bg);
@@ -69,9 +70,7 @@
       margin-bottom: 30px;
       transition: var(--transition);
     }
-    .info-message:hover {
-      background: #e0e7ff;
-    }
+    .info-message:hover { background: #e0e7ff; }
 
     .highlight {
       font-weight: bold;
@@ -95,11 +94,11 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
       cursor: pointer;
-      transform: translateY(0);
+      position: relative;
     }
 
     .cuadro-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
     }
 
@@ -114,21 +113,31 @@
       transform: scale(1.05);
     }
 
+    .cuadro-details {
+      padding: 15px 20px 20px;
+    }
+
     .cuadro-item h3 {
-      font-size: 1.1em;
+      font-size: 1.15em;
       color: var(--color-primary);
-      margin: 15px 0 5px;
+      margin-bottom: 5px;
+    }
+
+    .curso {
+      color: #4b5563;
+      font-size: 0.9em;
+      font-style: italic;
+      margin-bottom: 8px;
     }
 
     .cuadro-item p {
       color: #6b7280;
       font-size: 0.9em;
-      padding: 0 15px 10px;
+      margin-bottom: 15px;
     }
 
     .vote-info {
       text-align: center;
-      padding: 10px 0 20px;
     }
 
     .vote-button {
@@ -231,53 +240,74 @@
     </p>
 
     <div class="cuadros-grid">
-      <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="El Amanecer del Cóndor - Por [Artista 1]">
-        <img src="imagenes/1.jpg" alt="El Amanecer del Cóndor">
-        <h3>El Amanecer del Cóndor</h3>
-        <p>Captura la majestuosidad de los Andes al amanecer.</p>
-        <div class="vote-info">
-          <button class="vote-button" data-cuadro-id="1">Votar</button>
-          <span class="vote-count" id="votes-1">0 votos</span>
+
+      <!-- 🖼️ Cuadro Template 1 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="{{titulo1}} - Por {{autor1}}">
+        <img src="imagenes/1.jpg" alt="{{titulo1}}">
+        <div class="cuadro-details">
+          <h3>{{titulo1}}</h3>
+          <div class="curso">Curso: {{curso1}}</div>
+          <p>{{descripcion1}}</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="1">Votar</button>
+            <span class="vote-count" id="votes-1">0 votos</span>
+          </div>
         </div>
       </div>
 
-      <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="Naturaleza Viva - Por [Artista 2]">
-        <img src="imagenes/2.jpg" alt="Naturaleza Viva">
-        <h3>Naturaleza Viva</h3>
-        <p>Una explosión de color y biodiversidad.</p>
-        <div class="vote-info">
-          <button class="vote-button" data-cuadro-id="2">Votar</button>
-          <span class="vote-count" id="votes-2">0 votos</span>
+      <!-- Cuadro Template 2 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="{{titulo2}} - Por {{autor2}}">
+        <img src="imagenes/2.jpg" alt="{{titulo2}}">
+        <div class="cuadro-details">
+          <h3>{{titulo2}}</h3>
+          <div class="curso">Curso: {{curso2}}</div>
+          <p>{{descripcion2}}</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="2">Votar</button>
+            <span class="vote-count" id="votes-2">0 votos</span>
+          </div>
         </div>
       </div>
 
-      <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="Rostros de Nuestra Gente - Por [Artista 3]">
-        <img src="imagenes/3.jpg" alt="Rostros de Nuestra Gente">
-        <h3>Rostros de Nuestra Gente</h3>
-        <p>Retratos que celebran nuestra cultura.</p>
-        <div class="vote-info">
-          <button class="vote-button" data-cuadro-id="3">Votar</button>
-          <span class="vote-count" id="votes-3">0 votos</span>
+      <!-- Cuadro Template 3 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="{{titulo3}} - Por {{autor3}}">
+        <img src="imagenes/3.jpg" alt="{{titulo3}}">
+        <div class="cuadro-details">
+          <h3>{{titulo3}}</h3>
+          <div class="curso">Curso: {{curso3}}</div>
+          <p>{{descripcion3}}</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="3">Votar</button>
+            <span class="vote-count" id="votes-3">0 votos</span>
+          </div>
         </div>
       </div>
 
-      <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="Abstracto Urbano - Por [Artista 4]">
-        <img src="imagenes/4.jpg" alt="Abstracto Urbano">
-        <h3>Abstracto Urbano</h3>
-        <p>Una mirada moderna a la energía de la ciudad.</p>
-        <div class="vote-info">
-          <button class="vote-button" data-cuadro-id="4">Votar</button>
-          <span class="vote-count" id="votes-4">0 votos</span>
+      <!-- Cuadro Template 4 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="{{titulo4}} - Por {{autor4}}">
+        <img src="imagenes/4.jpg" alt="{{titulo4}}">
+        <div class="cuadro-details">
+          <h3>{{titulo4}}</h3>
+          <div class="curso">Curso: {{curso4}}</div>
+          <p>{{descripcion4}}</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="4">Votar</button>
+            <span class="vote-count" id="votes-4">0 votos</span>
+          </div>
         </div>
       </div>
 
-      <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="Serenidad Marina - Por [Artista 5]">
-        <img src="imagenes/5.jpg" alt="Serenidad Marina">
-        <h3>Serenidad Marina</h3>
-        <p>El océano al atardecer en calma infinita.</p>
-        <div class="vote-info">
-          <button class="vote-button" data-cuadro-id="5">Votar</button>
-          <span class="vote-count" id="votes-5">0 votos</span>
+      <!-- Cuadro Template 5 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="{{titulo5}} - Por {{autor5}}">
+        <img src="imagenes/5.jpg" alt="{{titulo5}}">
+        <div class="cuadro-details">
+          <h3>{{titulo5}}</h3>
+          <div class="curso">Curso: {{curso5}}</div>
+          <p>{{descripcion5}}</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="5">Votar</button>
+            <span class="vote-count" id="votes-5">0 votos</span>
+          </div>
         </div>
       </div>
     </div>
