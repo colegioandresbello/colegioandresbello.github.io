@@ -25,7 +25,7 @@
       font-family: "Inter", Arial, sans-serif;
       background-color: var(--color-bg);
       color: var(--color-text);
-      padding: 30px 15px;
+      padding: 20px;
       line-height: 1.6;
     }
 
@@ -82,7 +82,7 @@
     /* ======= CUADROS ======= */
     .cuadros-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 25px;
       justify-content: center;
     }
@@ -121,6 +121,7 @@
       font-size: 1.15em;
       color: var(--color-primary);
       margin-bottom: 5px;
+      text-align: center;
     }
 
     .curso {
@@ -128,12 +129,14 @@
       font-size: 0.9em;
       font-style: italic;
       margin-bottom: 8px;
+      text-align: center;
     }
 
     .cuadro-item p {
       color: #6b7280;
       font-size: 0.9em;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     .vote-info {
@@ -144,11 +147,16 @@
       background: var(--color-success);
       border: none;
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border-radius: var(--radius);
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
+      width: 100%;
+      max-width: 200px;
+      margin: auto;
+      display: block;
+      font-size: 1em;
     }
 
     .vote-button:hover:not(.disabled) {
@@ -188,13 +196,14 @@
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.4s ease;
+      padding: 20px;
     }
 
     .modal-content {
       background: var(--color-card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      max-width: 90%;
+      max-width: 100%;
       width: 600px;
       padding: 20px;
       animation: zoomIn 0.4s ease;
@@ -228,19 +237,57 @@
     }
 
     .close:hover { color: #f87171; }
+
+    /* ======= MEDIA QUERIES ======= */
+    @media (max-width: 768px) {
+      .container {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 1.7em;
+      }
+      .info-message {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      .cuadro-item img {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px 15px;
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      .info-message {
+        font-size: 0.85em;
+      }
+      .cuadro-item img {
+        height: 180px;
+      }
+      .vote-button {
+        padding: 10px;
+        font-size: 0.95em;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Votación</h1>
     <p class="info-message">
-      Selecciona tu cuadro favorito y emite tu voto.
-      Solo puedes votar una vez.
+      Selecciona tu cuadro favorito y emite tu voto.<br>
+      <span class="highlight">Solo puedes votar una vez.</span>
     </p>
 
     <div class="cuadros-grid">
-
-      <!-- 🖼️ Cuadro Template 1 -->
       <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="{{titulo1}} - Por {{autor1}}">
         <img src="imagenes/1.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -254,7 +301,6 @@
         </div>
       </div>
 
-      <!-- Cuadro Template 2 -->
       <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="{{titulo2}} - Por {{autor2}}">
         <img src="imagenes/2.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -268,7 +314,6 @@
         </div>
       </div>
 
-      <!-- Cuadro Template 3 -->
       <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="{{titulo3}} - Por {{autor3}}">
         <img src="imagenes/3.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -282,7 +327,6 @@
         </div>
       </div>
 
-      <!-- Cuadro Template 4 -->
       <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="{{titulo4}} - Por {{autor4}}">
         <img src="imagenes/4.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -296,7 +340,6 @@
         </div>
       </div>
 
-      <!-- Cuadro Template 5 -->
       <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="{{titulo5}} - Por {{autor5}}">
         <img src="imagenes/5.jpg" alt="Nombre">
         <div class="cuadro-details">
