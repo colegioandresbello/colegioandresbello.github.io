@@ -1,159 +1,224 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Votación de Cuadros - Colegio Andrés Bello</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votación de Cuadros</title>
   <style>
-    /* ======= ESTILOS ======= */
-    body {
-      font-family: Arial, sans-serif;
+    /* ======= BASE ======= */
+    :root {
+      --color-primary: #2563eb;
+      --color-success: #10b981;
+      --color-bg: #f9fafb;
+      --color-card: #ffffff;
+      --color-text: #111827;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+    }
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      padding: 30px 15px;
       line-height: 1.6;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #0056b3;
-      margin-bottom: 20px;
-    }
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.6em; }
-    .info-message {
-      text-align: center;
-      margin: 15px 0 25px 0;
-    }
-    .highlight {
-      font-weight: bold;
-      color: #dc3545;
-      display: block;
-      margin-top: 5px;
+      background: var(--color-card);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.7s ease-in-out;
     }
 
-    /* Cuadros */
-    .cuadros-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-      justify-content: center;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .cuadro-item {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
+
+    h1 {
       text-align: center;
-      background: #fff;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: transform 0.2s;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 2em;
+      margin-bottom: 5px;
     }
-    .cuadro-item:hover { transform: translateY(-5px); }
-    .cuadro-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    h2 {
+      text-align: center;
+      color: #6b7280;
+      font-weight: 400;
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+
+    .info-message {
+      text-align: center;
+      background: #eef2ff;
+      color: #4338ca;
+      padding: 15px;
+      border-radius: var(--radius);
+      font-size: 0.95em;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1);
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+    .info-message:hover {
+      background: #e0e7ff;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #dc2626;
+      margin-top: 8px;
       display: block;
     }
-    .cuadro-item h3 {
-      margin: 15px 0 10px;
-      color: #333;
-      font-size: 1.2em;
-      padding: 0 15px;
+
+    /* ======= CUADROS ======= */
+    .cuadros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      justify-content: center;
     }
-    .cuadro-item p {
-      font-size: 0.95em;
-      color: #666;
-      padding: 0 15px;
-      flex-grow: 1;
-    }
-    .vote-info { padding-bottom: 15px; }
-    .vote-button {
-      background-color: #28a745;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
+
+    .cuadro-item {
+      background: var(--color-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
       cursor: pointer;
-      font-size: 1em;
-      margin: 10px 0 0;
-      transition: background-color 0.2s;
-      width: calc(100% - 30px);
-      max-width: 200px;
+      transform: translateY(0);
     }
-    .vote-button:hover:not(.disabled) { background-color: #218838; }
+
+    .cuadro-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .cuadro-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .cuadro-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .cuadro-item h3 {
+      font-size: 1.1em;
+      color: var(--color-primary);
+      margin: 15px 0 5px;
+    }
+
+    .cuadro-item p {
+      color: #6b7280;
+      font-size: 0.9em;
+      padding: 0 15px 10px;
+    }
+
+    .vote-info {
+      text-align: center;
+      padding: 10px 0 20px;
+    }
+
+    .vote-button {
+      background: var(--color-success);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .vote-button:hover:not(.disabled) {
+      background: #059669;
+      transform: scale(1.05);
+    }
+
     .vote-button.disabled {
-      background-color: #cccccc;
+      background: #d1d5db;
       cursor: not-allowed;
     }
+
     .vote-count {
       position: absolute;
       top: 10px;
       right: 10px;
-      background-color: rgba(0,0,0,0.7);
+      background: rgba(17, 24, 39, 0.8);
       color: white;
       padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.85em;
+      border-radius: 20px;
+      font-size: 0.8em;
       font-weight: bold;
+      opacity: 0.9;
+      transition: var(--transition);
     }
 
-    /* Modal */
+    /* ======= MODAL ======= */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
-      overflow-y: auto;
+      animation: fadeIn 0.4s ease;
     }
+
     .modal-content {
-      margin: 20px;
-      width: 90%;
-      max-width: 700px;
-      background: #fff;
+      background: var(--color-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 90%;
+      width: 600px;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      position: relative;
+      animation: zoomIn 0.4s ease;
     }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     .modal-content img {
       width: 100%;
-      height: auto;
-      border-radius: 5px;
+      border-radius: var(--radius);
     }
+
     .modal-caption {
-      margin-top: 15px;
       text-align: center;
-      color: #555;
+      margin-top: 15px;
+      color: #374151;
+      font-size: 1em;
     }
+
     .close {
       position: absolute;
-      top: 10px; right: 15px;
-      color: #aaa;
-      font-size: 3em;
-      font-weight: bold;
-      transition: 0.3s;
+      top: 25px;
+      right: 35px;
+      color: white;
+      font-size: 2em;
+      cursor: pointer;
+      transition: var(--transition);
     }
-    .close:hover { color: #333; cursor: pointer; }
+
+    .close:hover { color: #f87171; }
   </style>
 </head>
 <body>
@@ -161,7 +226,7 @@
     <h1>Votación de Cuadros</h1>
     <h2>Colegio Andrés Bello</h2>
     <p class="info-message">
-      Selecciona tu cuadro favorito haciendo clic en la imagen para previsualizarlo y luego haz clic en "Votar" para emitir tu voto.
+      Selecciona tu cuadro favorito y emite tu voto.
       <span class="highlight">Solo puedes votar una vez.</span>
     </p>
 
@@ -169,7 +234,7 @@
       <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="El Amanecer del Cóndor - Por [Artista 1]">
         <img src="imagenes/1.jpg" alt="El Amanecer del Cóndor">
         <h3>El Amanecer del Cóndor</h3>
-        <p>Una obra maestra que captura la majestuosidad de los Andes al amanecer.</p>
+        <p>Captura la majestuosidad de los Andes al amanecer.</p>
         <div class="vote-info">
           <button class="vote-button" data-cuadro-id="1">Votar</button>
           <span class="vote-count" id="votes-1">0 votos</span>
@@ -179,7 +244,7 @@
       <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="Naturaleza Viva - Por [Artista 2]">
         <img src="imagenes/2.jpg" alt="Naturaleza Viva">
         <h3>Naturaleza Viva</h3>
-        <p>Una explosión de colores que celebra la biodiversidad de nuestra región.</p>
+        <p>Una explosión de color y biodiversidad.</p>
         <div class="vote-info">
           <button class="vote-button" data-cuadro-id="2">Votar</button>
           <span class="vote-count" id="votes-2">0 votos</span>
@@ -189,7 +254,7 @@
       <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="Rostros de Nuestra Gente - Por [Artista 3]">
         <img src="imagenes/3.jpg" alt="Rostros de Nuestra Gente">
         <h3>Rostros de Nuestra Gente</h3>
-        <p>Retratos que reflejan la riqueza cultural y las historias de nuestra comunidad.</p>
+        <p>Retratos que celebran nuestra cultura.</p>
         <div class="vote-info">
           <button class="vote-button" data-cuadro-id="3">Votar</button>
           <span class="vote-count" id="votes-3">0 votos</span>
@@ -199,7 +264,7 @@
       <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="Abstracto Urbano - Por [Artista 4]">
         <img src="imagenes/4.jpg" alt="Abstracto Urbano">
         <h3>Abstracto Urbano</h3>
-        <p>Una interpretación moderna de la energía y el dinamismo de la ciudad.</p>
+        <p>Una mirada moderna a la energía de la ciudad.</p>
         <div class="vote-info">
           <button class="vote-button" data-cuadro-id="4">Votar</button>
           <span class="vote-count" id="votes-4">0 votos</span>
@@ -209,7 +274,7 @@
       <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="Serenidad Marina - Por [Artista 5]">
         <img src="imagenes/5.jpg" alt="Serenidad Marina">
         <h3>Serenidad Marina</h3>
-        <p>Una vista relajante del océano al atardecer, capturando su calma infinita.</p>
+        <p>El océano al atardecer en calma infinita.</p>
         <div class="vote-info">
           <button class="vote-button" data-cuadro-id="5">Votar</button>
           <span class="vote-count" id="votes-5">0 votos</span>
@@ -227,33 +292,25 @@
     </div>
   </div>
 
-  <!-- 🔥 Firebase SDKs -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-
   <script>
-    // ============================================================
-    // 🚀 CONFIGURA AQUÍ TU FIREBASE
-    // (copia tu firebaseConfig desde la consola de Firebase)
-    // ============================================================
     const firebaseConfig = {
-  apiKey: "AIzaSyCAgMXWmtyyF4OK15pUoN9cHgfF2xlUPv0",
-  authDomain: "votaciones-3a70a.firebaseapp.com",
-  projectId: "votaciones-3a70a",
-  storageBucket: "votaciones-3a70a.firebasestorage.app",
-  messagingSenderId: "498536197257",
-  appId: "1:498536197257:web:5158a87b4e53fa7f64ea58"
-};
+      apiKey: "AIzaSyCAgMXWmtyyF4OK15pUoN9cHgfF2xlUPv0",
+      authDomain: "votaciones-3a70a.firebaseapp.com",
+      databaseURL: "https://votaciones-3a70a-default-rtdb.firebaseio.com",
+      projectId: "votaciones-3a70a",
+      storageBucket: "votaciones-3a70a.appspot.com",
+      messagingSenderId: "498536197257",
+      appId: "1:498536197257:web:5158a87b4e53fa7f64ea58"
+    };
 
-    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
     const votesRef = database.ref('cuadroVotes');
-
-    // Variable local para saber si el usuario ya votó
     let userHasVoted = localStorage.getItem('userHasVoted') === 'true';
 
-    // Actualiza el conteo en la pantalla
     function updateVoteCounts(votes) {
       for (const id in votes) {
         const span = document.getElementById(`votes-${id}`);
@@ -261,7 +318,6 @@
       }
     }
 
-    // Desactiva botones
     function disableAllVoteButtons() {
       const buttons = document.getElementsByClassName("vote-button");
       for (let btn of buttons) {
@@ -270,18 +326,15 @@
       }
     }
 
-    // Escuchar cambios en tiempo real
     votesRef.on('value', (snapshot) => {
       const data = snapshot.val() || {1:0,2:0,3:0,4:0,5:0};
       updateVoteCounts(data);
     });
 
-    // Si ya votó, desactivar al cargar
     document.addEventListener('DOMContentLoaded', () => {
       if (userHasVoted) disableAllVoteButtons();
     });
 
-    // Modal de previsualización
     const modal = document.getElementById("myModal");
     const modalImg = document.getElementById("img01");
     const captionText = document.getElementById("caption");
@@ -298,12 +351,11 @@
     document.getElementsByClassName("close")[0].onclick = () => modal.style.display = "none";
     modal.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
-    // Votación
     const voteButtons = document.getElementsByClassName("vote-button");
     for (let btn of voteButtons) {
       btn.onclick = function() {
         if (userHasVoted) {
-          alert("Ya has emitido tu voto. No puedes votar de nuevo.");
+          alert("Ya has emitido tu voto.");
           return;
         }
         const id = this.getAttribute("data-cuadro-id");
@@ -311,7 +363,7 @@
         userHasVoted = true;
         localStorage.setItem('userHasVoted', 'true');
         disableAllVoteButtons();
-        alert("¡Voto registrado por el Cuadro " + id + "! ¡Gracias por participar!");
+        alert("¡Voto registrado! Gracias por participar.");
       };
     }
   </script>
