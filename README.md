@@ -283,8 +283,8 @@
   <div class="container">
     <h1>Votación</h1>
     <p class="info-message">
-      Selecciona tu cuadro favorito y emite tu voto.<br>
-      <span class="highlight">Solo puedes votar una vez.</span>
+      Selecciona tu cuadro favorito y emite tu voto.
+      <b>Solo puedes votar una vez.</b>
     </p>
 
     <div class="cuadros-grid">
