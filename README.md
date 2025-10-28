@@ -243,11 +243,11 @@
 
       <!-- 🖼️ Cuadro Template 1 -->
       <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="{{titulo1}} - Por {{autor1}}">
-        <img src="imagenes/1.jpg" alt="{{titulo1}}">
+        <img src="imagenes/1.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>{{titulo1}}</h3>
-          <div class="curso">Curso: {{curso1}}</div>
-          <p>{{descripcion1}}</p>
+          <h3>Nombre</h3>
+          <div class="curso">Curso: 1101</div>
+          <p>Descripción</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="1">Votar</button>
             <span class="vote-count" id="votes-1">0 votos</span>
@@ -257,11 +257,11 @@
 
       <!-- Cuadro Template 2 -->
       <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="{{titulo2}} - Por {{autor2}}">
-        <img src="imagenes/2.jpg" alt="{{titulo2}}">
+        <img src="imagenes/2.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>{{titulo2}}</h3>
-          <div class="curso">Curso: {{curso2}}</div>
-          <p>{{descripcion2}}</p>
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="2">Votar</button>
             <span class="vote-count" id="votes-2">0 votos</span>
@@ -271,11 +271,11 @@
 
       <!-- Cuadro Template 3 -->
       <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="{{titulo3}} - Por {{autor3}}">
-        <img src="imagenes/3.jpg" alt="{{titulo3}}">
+        <img src="imagenes/3.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>{{titulo3}}</h3>
-          <div class="curso">Curso: {{curso3}}</div>
-          <p>{{descripcion3}}</p>
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="3">Votar</button>
             <span class="vote-count" id="votes-3">0 votos</span>
@@ -285,11 +285,11 @@
 
       <!-- Cuadro Template 4 -->
       <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="{{titulo4}} - Por {{autor4}}">
-        <img src="imagenes/4.jpg" alt="{{titulo4}}">
+        <img src="imagenes/4.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>{{titulo4}}</h3>
-          <div class="curso">Curso: {{curso4}}</div>
-          <p>{{descripcion4}}</p>
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="4">Votar</button>
             <span class="vote-count" id="votes-4">0 votos</span>
@@ -299,11 +299,11 @@
 
       <!-- Cuadro Template 5 -->
       <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="{{titulo5}} - Por {{autor5}}">
-        <img src="imagenes/5.jpg" alt="{{titulo5}}">
+        <img src="imagenes/5.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>{{titulo5}}</h3>
-          <div class="curso">Curso: {{curso5}}</div>
-          <p>{{descripcion5}}</p>
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="5">Votar</button>
             <span class="vote-count" id="votes-5">0 votos</span>
