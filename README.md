@@ -232,11 +232,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>Votación de Cuadros</h1>
-    <h2>Colegio Andrés Bello</h2>
+    <h1>Votación</h1>
     <p class="info-message">
       Selecciona tu cuadro favorito y emite tu voto.
-      <span class="highlight">Solo puedes votar una vez.</span>
+      Solo puedes votar una vez.
     </p>
 
     <div class="cuadros-grid">
