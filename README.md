@@ -27,6 +27,7 @@
       color: var(--color-text);
       padding: 20px;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container {
@@ -49,7 +50,7 @@
       color: var(--color-primary);
       font-weight: 700;
       font-size: 2em;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
     h2 {
       text-align: center;
@@ -85,6 +86,8 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 25px;
       justify-content: center;
+      align-items: start;
+      scroll-behavior: smooth;
     }
 
     .cuadro-item {
@@ -243,15 +246,41 @@
       .container {
         padding: 25px 20px;
       }
+
       h1 {
         font-size: 1.7em;
       }
+
       .info-message {
         font-size: 0.9em;
         padding: 12px;
       }
+
+      /* 🌟 Aquí el cambio clave: vista en columna con scroll vertical */
+      .cuadros-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        overflow-y: auto;
+        max-height: none;
+      }
+
+      .cuadro-item {
+        width: 100%;
+        transform: none;
+      }
+
+      .cuadro-item:hover {
+        transform: none;
+      }
+
       .cuadro-item img {
-        height: 200px;
+        height: 250px;
+      }
+
+      .vote-button {
+        font-size: 1em;
+        padding: 12px;
       }
     }
 
@@ -259,19 +288,24 @@
       body {
         padding: 10px;
       }
+
       .container {
         padding: 20px 15px;
         border-radius: 10px;
       }
+
       h1 {
         font-size: 1.5em;
       }
+
       .info-message {
         font-size: 0.85em;
       }
+
       .cuadro-item img {
-        height: 180px;
+        height: 220px;
       }
+
       .vote-button {
         padding: 10px;
         font-size: 0.95em;
@@ -281,19 +315,20 @@
 </head>
 <body>
   <div class="container">
-    <h1>Votación</h1>
+    <h1>Votación de Cuadros</h1>
     <p class="info-message">
       Selecciona tu cuadro favorito y emite tu voto.<br>
       <span class="highlight">Solo puedes votar una vez.</span>
     </p>
 
     <div class="cuadros-grid">
-      <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="{{titulo1}} - Por {{autor1}}">
+      <!-- Ejemplo de cuadro -->
+      <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="Nombre - Por Autor">
         <img src="imagenes/1.jpg" alt="Nombre">
         <div class="cuadro-details">
-          <h3>Nombre</h3>
+          <h3>Nombre del Cuadro</h3>
           <div class="curso">Curso: 1101</div>
-          <p>Descripción</p>
+          <p>Descripción del cuadro.</p>
           <div class="vote-info">
             <button class="vote-button" data-cuadro-id="1">Votar</button>
             <span class="vote-count" id="votes-1">0 votos</span>
@@ -301,57 +336,8 @@
         </div>
       </div>
 
-      <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="{{titulo2}} - Por {{autor2}}">
-        <img src="imagenes/2.jpg" alt="Nombre">
-        <div class="cuadro-details">
-          <h3>Nombre</h3>
-          <div class="curso">Curso: </div>
-          <p>Descripción</p>
-          <div class="vote-info">
-            <button class="vote-button" data-cuadro-id="2">Votar</button>
-            <span class="vote-count" id="votes-2">0 votos</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="{{titulo3}} - Por {{autor3}}">
-        <img src="imagenes/3.jpg" alt="Nombre">
-        <div class="cuadro-details">
-          <h3>Nombre</h3>
-          <div class="curso">Curso: </div>
-          <p>Descripción</p>
-          <div class="vote-info">
-            <button class="vote-button" data-cuadro-id="3">Votar</button>
-            <span class="vote-count" id="votes-3">0 votos</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="{{titulo4}} - Por {{autor4}}">
-        <img src="imagenes/4.jpg" alt="Nombre">
-        <div class="cuadro-details">
-          <h3>Nombre</h3>
-          <div class="curso">Curso: </div>
-          <p>Descripción</p>
-          <div class="vote-info">
-            <button class="vote-button" data-cuadro-id="4">Votar</button>
-            <span class="vote-count" id="votes-4">0 votos</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="{{titulo5}} - Por {{autor5}}">
-        <img src="imagenes/5.jpg" alt="Nombre">
-        <div class="cuadro-details">
-          <h3>Nombre</h3>
-          <div class="curso">Curso: </div>
-          <p>Descripción</p>
-          <div class="vote-info">
-            <button class="vote-button" data-cuadro-id="5">Votar</button>
-            <span class="vote-count" id="votes-5">0 votos</span>
-          </div>
-        </div>
-      </div>
+      <!-- Repite los cuadros -->
+      <!-- ... -->
     </div>
   </div>
 
