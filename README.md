@@ -3,6 +3,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Votación de Cuadros</title>
+  <link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico">
   <style>
     :root {
       --color-primary: #2563eb;
