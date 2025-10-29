@@ -251,19 +251,43 @@
     }
 
     @media (max-width: 600px) {
+      .frame {
+        width: 95%;
+        aspect-ratio: 3 / 5;
+      }
+
+      .vote-btn {
+        padding: 14px 40px;
+        font-size: 1.2rem;
+        bottom: 20px;
+      }
+
+      .nav-btn {
+        width: 50px;
+        height: 50px;
+      }
+
+      .counter {
+        font-size: 1rem;
+        padding: 10px 18px;
+      }
+
       .intro-box {
         padding: 40px 30px;
       }
+
       .intro-box h2 {
         font-size: 1.4rem;
         margin-bottom: 20px;
       }
+
       .intro-box p {
         font-size: 1rem;
         margin-bottom: 25px;
       }
+
       .intro-box button {
-        padding: 12px 28px;
+        padding: 10px 26px;
         font-size: 1rem;
       }
     }
