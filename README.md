@@ -336,7 +336,7 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const cuadros = Array.from({ length: 7 }, (_, i) => ({
+    const cuadros = Array.from({ length: 8 }, (_, i) => ({
       id: `${i + 1}`,
       src: `imagenes/${i + 1}.jpg`
     }));
