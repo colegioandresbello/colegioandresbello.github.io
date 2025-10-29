@@ -71,7 +71,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: #f8f8fa;
+      background: #000000;
     }
 
     .slide img {
