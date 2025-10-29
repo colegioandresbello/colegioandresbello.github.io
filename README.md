@@ -154,7 +154,6 @@
       font-weight: bold;
     }
 
-    /* ======= MODAL ======= */
     .modal {
       display: none;
       position: fixed;
@@ -185,10 +184,7 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    .modal-content img {
-      width: 100%;
-      border-radius: var(--radius);
-    }
+    .modal-content img { width: 100%; border-radius: var(--radius); }
 
     .modal-caption {
       text-align: center;
@@ -218,10 +214,77 @@
     </p>
 
     <div class="cuadros-grid">
-      <!-- Cuadros existentes (1–5) -->
-      <!-- ... los 5 cuadros que ya tienes ... -->
+      <!-- Cuadro 1 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/1.jpg" data-caption="{{titulo1}} - Por {{autor1}}">
+        <img src="imagenes/1.jpg" alt="Nombre">
+        <div class="cuadro-details">
+          <h3>Nombre</h3>
+          <div class="curso">Curso: 1101</div>
+          <p>Descripción</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="1">Votar</button>
+            <span class="vote-count" id="votes-1">0 votos</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- 🖼️ Cuadro 6 -->
+      <!-- Cuadro 2 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/2.jpg" data-caption="{{titulo2}} - Por {{autor2}}">
+        <img src="imagenes/2.jpg" alt="Nombre">
+        <div class="cuadro-details">
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="2">Votar</button>
+            <span class="vote-count" id="votes-2">0 votos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuadro 3 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/3.jpg" data-caption="{{titulo3}} - Por {{autor3}}">
+        <img src="imagenes/3.jpg" alt="Nombre">
+        <div class="cuadro-details">
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="3">Votar</button>
+            <span class="vote-count" id="votes-3">0 votos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuadro 4 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/4.jpg" data-caption="{{titulo4}} - Por {{autor4}}">
+        <img src="imagenes/4.jpg" alt="Nombre">
+        <div class="cuadro-details">
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="4">Votar</button>
+            <span class="vote-count" id="votes-4">0 votos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuadro 5 -->
+      <div class="cuadro-item" data-fullsrc="imagenes/5.jpg" data-caption="{{titulo5}} - Por {{autor5}}">
+        <img src="imagenes/5.jpg" alt="Nombre">
+        <div class="cuadro-details">
+          <h3>Nombre</h3>
+          <div class="curso">Curso: </div>
+          <p>Descripción</p>
+          <div class="vote-info">
+            <button class="vote-button" data-cuadro-id="5">Votar</button>
+            <span class="vote-count" id="votes-5">0 votos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuadro 6 -->
       <div class="cuadro-item" data-fullsrc="imagenes/6.jpg" data-caption="{{titulo6}} - Por {{autor6}}">
         <img src="imagenes/6.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -235,7 +298,7 @@
         </div>
       </div>
 
-      <!-- 🖼️ Cuadro 7 -->
+      <!-- Cuadro 7 -->
       <div class="cuadro-item" data-fullsrc="imagenes/7.jpg" data-caption="{{titulo7}} - Por {{autor7}}">
         <img src="imagenes/7.jpg" alt="Nombre">
         <div class="cuadro-details">
@@ -260,7 +323,7 @@
     </div>
   </div>
 
-  <!-- Firebase -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
   <script>
