@@ -147,7 +147,7 @@
     .vote-button {
       background: var(--color-success);
       border: none;
-      color: #fff;
+      color: #4338ca;
       padding: 12px 25px;
       border-radius: var(--radius);
       font-weight: 600;
@@ -161,7 +161,7 @@
     }
 
     .vote-button:hover:not(.disabled) {
-      background: #059669;
+      background: #4338ca;
       transform: scale(1.05);
     }
 
@@ -180,7 +180,7 @@
       border-radius: 20px;
       font-size: 0.8em;
       font-weight: bold;
-      opacity: 0.9;
+      opacity: 1;
       transition: var(--transition);
     }
 
