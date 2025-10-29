@@ -7,7 +7,7 @@
   <style>
     :root {
       --color-primary: #2563eb;
-      --color-success: #10b981;
+      --color-success: #4338ca;
       --color-bg: #f9fafb;
       --color-card: #ffffff;
       --color-text: #111827;
@@ -147,7 +147,7 @@
     .vote-button {
       background: var(--color-success);
       border: none;
-      color: #4338ca;
+      color: #fff;
       padding: 12px 25px;
       border-radius: var(--radius);
       font-weight: 600;
