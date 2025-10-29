@@ -202,28 +202,6 @@
                 animation: zoomIn 0.3s ease;
             }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.96);
-                opacity: 0.8;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
         .intro-modal {
             position: fixed;
             inset: 0;
@@ -248,38 +226,6 @@
             animation: zoomIn 0.3s ease;
         }
 
-            .intro-box h2 {
-                font-size: 1.8rem;
-                margin-bottom: 28px;
-                font-weight: 700;
-                color: #111;
-            }
-
-            .intro-box p {
-                font-size: 1.1rem;
-                margin-bottom: 40px;
-                color: #333;
-                line-height: 1.6;
-            }
-
-            .intro-box button {
-                background: var(--accent);
-                color: white;
-                border: none;
-                font-size: 1.1rem;
-                font-weight: 600;
-                padding: 14px 36px;
-                border-radius: 999px;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
-            }
-
-                .intro-box button:hover {
-                    background: var(--accent-hover);
-                    transform: scale(1.05);
-                }
-
         #logoutBtn {
             position: fixed;
             top: 20px;
@@ -297,33 +243,6 @@
             #logoutBtn:hover {
                 background: #d63025;
             }
-
-        @media (max-width: 600px) {
-            .frame {
-                width: 95%;
-                aspect-ratio: 3 / 5;
-            }
-
-            .vote-btn {
-                padding: 14px 40px;
-                font-size: 1.2rem;
-                bottom: 20px;
-            }
-
-            .nav-btn {
-                width: 50px;
-                height: 50px;
-            }
-
-            .counter {
-                font-size: 1rem;
-                padding: 10px 18px;
-            }
-
-            .intro-box {
-                padding: 40px 30px;
-            }
-        }
     </style>
 </head>
 
@@ -340,12 +259,8 @@
 
     <div class="frame">
         <div class="slider" id="slider"></div>
-        <button id="prevBtn" class="nav-btn" aria-label="Anterior">
-            <span class="material-symbols-rounded">arrow_back_ios_new</span>
-        </button>
-        <button id="nextBtn" class="nav-btn" aria-label="Siguiente">
-            <span class="material-symbols-rounded">arrow_forward_ios</span>
-        </button>
+        <button id="prevBtn" class="nav-btn"><span class="material-symbols-rounded">arrow_back_ios_new</span></button>
+        <button id="nextBtn" class="nav-btn"><span class="material-symbols-rounded">arrow_forward_ios</span></button>
     </div>
 
     <div class="modal" id="modal">
@@ -421,6 +336,14 @@
             if (snapshot.exists()) disableAllButtons();
         }
 
+        // 🔹 Asegurar que todos los cuadros tengan contador inicial en 0
+        cuadros.forEach(async c => {
+            const voteRef = ref(db, `cuadroVotes/${c.id}`);
+            const snapshot = await get(voteRef);
+            if (!snapshot.exists()) await set(voteRef, 0);
+        });
+
+        // 🔹 Evento de votación
         slider.addEventListener("click", async e => {
             if (e.target.classList.contains("vote-btn")) {
                 const user = auth.currentUser;
@@ -438,9 +361,14 @@
 
                 const id = e.target.dataset.id;
                 const voteRef = ref(db, `cuadroVotes/${id}`);
-
                 await runTransaction(voteRef, n => (n || 0) + 1);
-                await set(userVoteRef, id);
+
+                // 🔹 Guarda correo, nombre y voto
+                await set(userVoteRef, {
+                    email: user.email,
+                    name: user.displayName,
+                    vote: id
+                });
 
                 disableAllButtons();
                 alert(`Tu voto por el cuadro #${id} ha sido registrado. ¡Gracias por participar!`);
