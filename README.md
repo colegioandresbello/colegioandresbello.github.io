@@ -36,7 +36,7 @@
       position: relative;
       width: 90%;
       max-width: 900px;
-      aspect-ratio: 7 / 10;
+      aspect-ratio: 7 / 10; /* Mantiene proporción vertical */
       background: white;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -116,6 +116,7 @@
       box-shadow: 0 15px 35px rgba(0, 122, 255, 0.4);
       transition: all 0.25s ease;
       letter-spacing: 0.5px;
+      aspect-ratio: 4 / 1; /* 🔹 Mantiene proporción del botón */
     }
 
     .vote-btn:hover {
@@ -141,6 +142,7 @@
       width: 70px;
       height: 70px;
       border-radius: 50%;
+      aspect-ratio: 1 / 1; /* 🔹 Botones de navegación perfectamente circulares */
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
       transition: all 0.2s ease;
@@ -240,6 +242,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+      aspect-ratio: 3 / 1; /* 🔹 Proporción estable en botón de aceptación */
     }
 
     .intro-box button:hover {
@@ -348,7 +351,6 @@
     });
     modal.addEventListener("click", () => modal.classList.remove("open"));
 
-    // 🔹 Control de votación única
     const userVote = localStorage.getItem("userVote");
 
     function disableAllButtons() {
@@ -374,7 +376,6 @@
       }
     });
 
-    // Contadores
     cuadros.forEach(c => {
       const r = ref(db, `cuadroVotes/${c.id}`);
       onValue(r, snap => {
@@ -384,7 +385,6 @@
       });
     });
 
-    // Modal inicial
     const introModal = document.getElementById("introModal");
     const acceptBtn = document.getElementById("acceptBtn");
 
