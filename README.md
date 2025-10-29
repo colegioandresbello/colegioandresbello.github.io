@@ -353,8 +353,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
       <div class="cuadro-item" data-fullsrc="imagenes/6.jpg" data-caption="{{titulo6}} - Por {{autor6}}">
         <img src="imagenes/6.jpg" alt="Nombre">
@@ -368,6 +366,7 @@
           </div>
         </div>
       </div>
+      
 
       <div class="cuadro-item" data-fullsrc="imagenes/7.jpg" data-caption="{{titulo7}} - Por {{autor7}}">
         <img src="imagenes/7.jpg" alt="Nombre">
@@ -381,8 +380,10 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
+
 
   <!-- Modal -->
   <div id="myModal" class="modal">
