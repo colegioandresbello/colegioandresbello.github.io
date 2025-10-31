@@ -485,6 +485,13 @@
         logoutBtn.addEventListener("click", async () => {
             await signOut(auth);
         });
+        // 🔒 Deshabilitar todos los botones de votar porque ya finalizaron las votaciones
+window.addEventListener("load", () => {
+    document.querySelectorAll(".vote-btn").forEach(btn => {
+        btn.disabled = true;
+        btn.textContent = "VOTACIÓN CERRADA";
+    });
+});
     </script>
 </body>
 </html>
